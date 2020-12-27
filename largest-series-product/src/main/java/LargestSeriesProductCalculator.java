@@ -16,7 +16,7 @@ class LargestSeriesProductCalculator {
         if (numberOfDigits == 0) return 1;
         return IntStream.iterate(0, i -> i <= inputNumber.length() - numberOfDigits, i -> i + 1)
                 .mapToObj(i -> inputNumber.substring(i, Math.min(i + numberOfDigits, inputNumber.length())))
-                .mapToInt(s -> Arrays.stream(s.split("")).mapToInt(Integer::parseInt).reduce(1, (a, b) -> a * b))
-                .summaryStatistics().getMax();
+                .mapToLong(s -> Arrays.stream(s.split("")).mapToLong(Long::parseLong).reduce(1L, (a, b) -> a * b))
+                .max().orElse(0);
     }
 }
