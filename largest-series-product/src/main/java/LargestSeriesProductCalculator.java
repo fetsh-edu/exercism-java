@@ -15,7 +15,7 @@ class LargestSeriesProductCalculator {
         if(numberOfDigits < 0) throw new IllegalArgumentException("Series length must be non-negative.");
         if (numberOfDigits == 0) return 1;
         return IntStream.iterate(0, i -> i <= inputNumber.length() - numberOfDigits, i -> i + 1)
-                .mapToObj(i -> inputNumber.substring(i, Math.min(i + numberOfDigits, inputNumber.length())))
+                .mapToObj(i -> inputNumber.substring(i, i + numberOfDigits))
                 .mapToLong(s -> Arrays.stream(s.split("")).mapToLong(Long::parseLong).reduce(1L, (a, b) -> a * b))
                 .max().orElse(0);
     }
