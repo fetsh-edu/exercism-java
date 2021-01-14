@@ -30,8 +30,6 @@ class Yacht {
             case FULL_HOUSE -> {
                 var hm = streamToMap.apply(diceS);
                 yield (hm.size() != 2 || !hm.containsValue(3L)) ? 0 : Arrays.stream(dice).sum();
-//              if (hm.size() != 2 || !hm.containsValue(3L)) yield 0;
-//                yield hm.entrySet().stream().mapToInt(e -> (int) (e.getKey() * e.getValue())).sum();
             }
         };
     }
