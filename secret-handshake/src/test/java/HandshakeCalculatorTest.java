@@ -92,5 +92,11 @@ public class HandshakeCalculatorTest {
                 emptyList(),
                 handshakeCalculator.calculateHandshake(0));
     }
+    @Test
+    public void testReversingTwoAction() {
+        assertEquals(
+                asList(Signal.JUMP, Signal.WINK),
+                handshakeCalculator.calculateHandshake(25));
+    }
 
 }
